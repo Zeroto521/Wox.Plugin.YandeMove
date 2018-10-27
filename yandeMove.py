@@ -39,7 +39,6 @@ class Main(Wox):
         """
 
         result = []
-        param = param.strip()
 
         # create counter
         move_counter = 0
@@ -49,7 +48,7 @@ class Main(Wox):
             for file in os.listdir(raw_path):
                 if reg.match(file):  # find the yande's pictures
                     raw = os.path.join(raw_path, file)
-                    aim = os.path.join(aim, file)
+                    aim = os.path.join(AIM_PATH, file)
 
                     if not os.path.exists(aim):
                         # move picture to aim path
@@ -59,12 +58,12 @@ class Main(Wox):
                         # sand to win sys recycle
                         send2trash.send2trash(raw)
                         delete_counter += 1
-        else:
-            title = "{} pictures have moved and {} pictures have deleted.".format(
-                move_counter, delete_counter)
-            subtitle = 'Click to open the aim folder in window.'
-            method = 'openFolder'
-            result.insert(0, self.genaction(title, subtitle, method, AIM_PATH))
+
+        title = "{} pictures have moved and {} pictures have deleted.".format(
+            move_counter, delete_counter)
+        subtitle = 'Click to open the aim folder in window.'
+        method = 'openFolder'
+        result.insert(0, self.genaction(title, subtitle, method, AIM_PATH))
 
         return result
 
