@@ -1,0 +1,12 @@
+{
+    "ID": "6f3a78a434d24df8a466d2d8f3cb3939",
+    "ActionKeyword": "move",
+    "Name": "YandeMove",
+    "Description": "Auto collect yande.re's pictures.",
+    "Author": "Zeroto521",
+    "Version": "0.0.1",
+    "Language": "python",
+    "Website": "https://github.com/Zeroto521/",
+    "IcoPath": "Images\\favicon.ico",
+    "ExecuteFileName": "yandeMove.py"
+}
