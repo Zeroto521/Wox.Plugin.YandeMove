@@ -1,6 +1,6 @@
 # Wox.Plugin.YandeMove
 
-Auto rename yande.re's pictures by its id in yande.
+Auto collect yande.re's pictures to one folder where you like.
 
 ![screenshots](/Images/zero_20181027_115544.png)
 
