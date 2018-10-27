@@ -41,13 +41,16 @@ class Main(Wox):
         result = []
         param = param.strip()
 
+        # create counter
         move_counter = 0
         delete_counter = 0
+
         for raw_path in RAW_PATH_LIST:
             for file in os.listdir(raw_path):
-                if reg.match(file):
+                if reg.match(file):  # find the yande's pictures
                     raw = os.path.join(raw_path, file)
                     aim = os.path.join(aim, file)
+
                     if not os.path.exists(aim):
                         # move picture to aim path
                         shutil.move(raw, aim)
