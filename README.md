@@ -14,7 +14,7 @@ It looks like **mess**.
 
 ### after
 
-**Clear**, now.
+**Cleaning**, now.
 
 > ![screenshots](/Images/zero_20181027_115859.png)
 
