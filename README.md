@@ -6,13 +6,13 @@ Auto collect yande.re's pictures to one folder where you like.
 
 ## Example
 
-### before
+### Before
 
 It looks like **mess**.
 
 > ![screenshots](/Images/zero_20181027_115705.png)
 
-### after
+### After
 
 **Cleaning**, now.
 
