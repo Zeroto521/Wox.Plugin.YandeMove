@@ -33,5 +33,4 @@ Once there are the **same** picture(by **name**) between **AIM_PATH** and **RAW_
 ## Requirements
 
 1. `Python3.x`
-2. `shutil`
-3. `send2trash`
+1. `send2trash`

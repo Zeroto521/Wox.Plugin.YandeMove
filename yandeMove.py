@@ -1,14 +1,19 @@
+# -*- coding: utf-8 -*-
+
 import copy
 import os
 import re
 import shutil
+from getpass import getuser
 
-import send2trash
+from send2trash import send2trash
 
 from wox import Wox, WoxAPI
 
-AIM_PATH = r'C:\Users\Zero\Pictures\舔图猫'
-RAW_PATH_LIST = [r'C:\Users\Zero\Downloads']
+USERNAME = getuser()
+
+AIM_PATH = r'C:\Users\{}\Pictures\舔图猫'.format(USERNAME)
+RAW_PATH_LIST = [r'C:\Users\{}\Downloads'.format(USERNAME)]
 
 RESULT_TEMPLATE = {
     'Title': '',
@@ -28,11 +33,8 @@ reg = re.compile(r'^yande\.re.+?\d+?.*?\.(png|jpg|jpeg)$', flags=re.I)
 
 class Main(Wox):
 
-    def query(self, param):
+    def query(self):
         """Wox dealing programm
-
-        Arguments:
-            param {str} -- wox window key in parameter
 
         Returns:
             list -- wox json list
@@ -56,7 +58,7 @@ class Main(Wox):
                         move_counter += 1
                     else:
                         # sand to win sys recycle
-                        send2trash.send2trash(raw)
+                        send2trash(raw)
                         delete_counter += 1
 
         title = "{} pictures have moved and {} pictures have deleted.".format(
