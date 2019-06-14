@@ -8,5 +8,5 @@
     "Language": "python",
     "Website": "https://github.com/Zeroto521/Wox.Plugin.YandeMove",
     "IcoPath": "Images\\favicon.ico",
-    "ExecuteFileName": "yandeMove.py"
+    "ExecuteFileName": "launcher.py"
 }
