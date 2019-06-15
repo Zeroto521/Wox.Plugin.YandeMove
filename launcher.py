@@ -8,7 +8,6 @@ from getpass import getuser
 
 from send2trash import send2trash
 
-from pytest import testit
 from wox import Wox, WoxAPI
 
 USERNAME = getuser()
