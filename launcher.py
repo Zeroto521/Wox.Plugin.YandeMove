@@ -43,9 +43,7 @@ class Main(Wox):
 
         result = []
 
-        # create counter
-        move_counter = 0
-        delete_counter = 0
+        counter = 0
 
         for raw_path in RAW_PATH_LIST:
             for file in os.listdir(raw_path):
@@ -56,39 +54,17 @@ class Main(Wox):
                     if not os.path.exists(aim):
                         # move picture to aim path
                         shutil.move(raw, aim)
-                        move_counter += 1
+                        counter += 1
                     else:
                         # sand to win sys recycle
                         send2trash(raw)
-                        delete_counter += 1
 
-        title = "{} pictures have moved and {} pictures have deleted.".format(
-            move_counter, delete_counter)
+        title = "{} pictures have been moved.".format(counter)
         subtitle = 'Click to open the aim folder in window.'
         method = 'openFolder'
-        result.insert(0, self.genaction(title, subtitle, method, AIM_PATH))
+        result.append(self.genaction(title, subtitle, method, AIM_PATH))
 
         return result
-
-    @staticmethod
-    def genformat(title, subtitle=''):
-        """Generate wox json data
-
-        Arguments:
-            title {str} -- as name
-
-        Keyword Arguments:
-            subtitle {str} -- additional information (default: {''})
-
-        Returns:
-            json -- wox json
-        """
-
-        time_format = copy.deepcopy(RESULT_TEMPLATE)
-        time_format['Title'] = title
-        time_format['SubTitle'] = subtitle
-
-        return time_format
 
     @staticmethod
     def genaction(tit, subtit, method, actparam):
