@@ -4,31 +4,12 @@ import copy
 import os
 import re
 import shutil
-from getpass import getuser
 
 from send2trash import send2trash
 
 from wox import Wox, WoxAPI
 
-USERNAME = getuser()
-
-AIM_PATH = r'C:\Users\{}\Pictures\舔图猫'.format(USERNAME)
-RAW_PATH_LIST = [r'C:\Users\{}\Downloads'.format(USERNAME)]
-
-RESULT_TEMPLATE = {
-    'Title': '',
-    'SubTitle': '',
-    'IcoPath': 'Images/favicon.ico',
-}
-
-ACTION_TEMPLATE = {
-    'JsonRPCAction': {
-        'method': '',
-        'parameters': [],
-    }
-}
-
-reg = re.compile(r'^yande\.re.+?\d+?.*?\.(png|jpg|jpeg)$', flags=re.I)
+from .constants import *
 
 
 class Main(Wox):
@@ -41,8 +22,8 @@ class Main(Wox):
         """
 
         result = []
-
         counter = 0
+        reg = re.compile(r'^yande\.re.+?\d+?.*?\.(png|jpg|jpeg)$', flags=re.I)
 
         for raw_path in RAW_PATH_LIST:
             for file in os.listdir(raw_path):
@@ -91,7 +72,3 @@ class Main(Wox):
     def openFolder(self, path):
         os.startfile(path)
         WoxAPI.change_query(path)
-
-
-if __name__ == '__main__':
-    Main()
